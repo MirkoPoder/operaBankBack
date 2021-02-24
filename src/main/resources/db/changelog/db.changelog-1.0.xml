@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.10.xsd">
+    <changeSet author="Mirko" id="20.02.2020-Creating_tables">
+        <createTable tableName="users">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true" unique="false"/>
+            </column>
+
+            <column name="username" type="text">
+                <constraints nullable="false" primaryKey="false" unique="false"/>
+            </column>
+            <column name="password" type="text">
+                <constraints nullable="false" primaryKey="false" unique="false"/>
+            </column>
+        </createTable>
+        <createTable tableName="account">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true" unique="false"/>
+            </column>
+            <column name="firstname" type="text">
+                <constraints nullable="false" primaryKey="false" unique="false"/>
+            </column>
+            <column name="lastname" type="text">
+                <constraints nullable="false" primaryKey="false" unique="false"/>
+            </column>
+            <column name="account_number" type="text">
+                <constraints nullable="false" primaryKey="false" unique="true"/>
+            </column>
+            <column name="balance" type="number">
+                <constraints nullable="false" primaryKey="false" unique="false"/>
+            </column>
+            <column name="bank" type="text">
+                <constraints nullable="false" primaryKey="false" unique="false"/>
+            </column>
+            <column name="user_id" type="int">
+                <constraints nullable="false" primaryKey="false" unique="false" foreignKeyName="fk_user_account"
+                             references="users(id)"/>
+            </column>
+        </createTable>
+        <createTable tableName="transactions">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true" unique="false"/>
+            </column>
+            <column name="fromaccount_number" type="text">
+                <constraints nullable="true" primaryKey="false" unique="false"/>
+            </column>
+            <column name="toaccount_number" type="text">
+                <constraints nullable="true" primaryKey="false" unique="false"/>
+            </column>
+            <column name="description" type="text">
+                <constraints nullable="true" primaryKey="false" unique="false"/>
+            </column>
+            <column name="amount" type="int">
+                <constraints nullable="true" primaryKey="false" unique="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
