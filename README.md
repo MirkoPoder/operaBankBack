@@ -12,7 +12,6 @@ All passwords are protected with salts and hashes.
 * Install required software
 * Clone the project to local computer
 * Open project folder with IDEA 
-* In command line go to the project path /docker folder and run command "docker-compose build" (only first run). To run database images run command "docker-compose up"
 * Run main method in OperaBankBackApplication class located in 'src/main/java/com/example/podermirko/operabankback/OperaBankBackApplication.java'
 
 ### Required software:
